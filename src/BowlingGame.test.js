@@ -38,6 +38,15 @@ describe("Juego de bolos", () => {
     expect(g.getScore()).toBe(24);
   });
   
+  function rollSpare(){
+    g.roll(5);//spare
+    g.roll(5);
+  }
+  it("debería ser un juego perfecto", () => {
+    
+    rollMany(12,10);
+    expect(g.getScore()).toBe(300);
+  });
 
 });
 
