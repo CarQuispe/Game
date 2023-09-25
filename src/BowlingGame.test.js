@@ -29,5 +29,15 @@ describe("Juego de bolos", () => {
     rollMany(17, 0);
     expect(g.getScore()).toBe(16);
   });
+
+  it("debería ser un juego con strike", () => {
+    g.roll(10); //strike
+    g.roll(3); 
+    g.roll(4);
+    rollMany(16, 0);
+    expect(g.getScore()).toBe(24);
+  });
+  
+
 });
 
