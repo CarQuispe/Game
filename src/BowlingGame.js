@@ -1,4 +1,4 @@
-class Game{
+class Game {
 
   constructor(){
     this.rolls = new Array(21).fill(0);
@@ -10,14 +10,24 @@ class Game{
     //this.getScore += pins;
   }
   getScore(){
-    let getScore =0;
-    let i =0;
+    let score =0;
+    let frameIndex =0;
     for(let frame =0; frame<10;frame ++){
-      getScore += this.roll[i]+ this.rolls[i+1];
-      i+=2;
+      if(this.isSpare(frameIndex)){
+        score += 10 + this.rolls[frameIndex +2];
+        frameIndex +=2;
+
+      }else{
+        score +=this.rolls[frameIndex]+ this.rolls[frameIndex +1];
+        frameIndex +=2;
+      }
+      
     }
-    return getScore;
+    return score;
+  }
+  isSpare(frameIndex){
+    return this.rolls[frameIndex] + this.rolls[frameIndex+1] === 10 ;
   }
 
 }
-module.exports= Game;
+module.exports = Game;
